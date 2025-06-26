@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>СмартМаркет – Аксесуари для смартфонів</title>
+  <style>
+    body { font-family: sans-serif; margin: 0; padding: 0; background: #111; color: #fff; }
+    header { background: #1e1e1e; padding: 20px; text-align: center; }
+    h1 { margin: 0; font-size: 2em; color: #00d1b2; }
+    .section { padding: 20px; }
+    .filters { text-align: center; margin-bottom: 20px; }
+    .filter-btn { background: #333; color: #fff; border: none; margin: 5px; padding: 10px 15px; border-radius: 5px; cursor: pointer; }
+    .filter-btn:hover { background: #00d1b2; color: #000; }
+    .products { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+    .product { background: #222; padding: 15px; border-radius: 10px; box-shadow: 0 0 10px #000; }
+    .product img { width: 100%; border-radius: 8px; }
+    .product h3 { margin-top: 10px; font-size: 1.1em; }
+    .product p { font-size: 0.95em; }
+    .price { font-weight: bold; color: #00ffae; margin: 5px 0; }
+    .order-btn { display: inline-block; margin-top: 10px; background: #00d1b2; color: #000; padding: 8px 12px; border-radius: 5px; text-decoration: none; }
+    form { background: #1b1b1b; padding: 20px; border-radius: 10px; }
+    input, textarea { width: 100%; margin-bottom: 10px; padding: 8px; border: none; border-radius: 5px; }
+    button { background: #00d1b2; color: #000; padding: 10px; border: none; border-radius: 5px; cursor: pointer; }
+    footer { text-align: center; padding: 15px; font-size: 0.9em; color: #aaa; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>СмартМаркет</h1>
+    <p>Аксесуари для смартфонів – 2025</p>
+  </header>
+
+  <section class="section">
+    <div class="filters">
+      <button class="filter-btn" onclick="filterProducts('all')">Усі</button>
+      <button class="filter-btn" onclick="filterProducts('protection')">Захист</button>
+      <button class="filter-btn" onclick="filterProducts('charging')">Зарядка</button>
+      <button class="filter-btn" onclick="filterProducts('sound')">Звук</button>
+      <button class="filter-btn" onclick="filterProducts('content')">Контент</button>
+    </div>
+    <div class="products">
+      <div class="product" data-category="protection">
+        <img src="https://i.imgur.com/WPzkXJL.jpg" alt="Чохол з кільцем">
+        <h3>Чохол 360° з кільцем</h3>
+        <p class="price">199 грн</p>
+        <p>Зручний тримач і захист камери.</p>
+        <a class="order-btn" href="#order">Замовити</a>
+      </div>
+      <div class="product" data-category="protection">
+        <img src="https://i.imgur.com/ztcb0tC.jpg" alt="Захисне скло">
+        <h3>Захисне скло 21D</h3>
+        <p class="price">129 грн</p>
+        <p>Приватність та захист без подряпин.</p>
+        <a class="order-btn" href="#order">Замовити</a>
+      </div>
+      <div class="product" data-category="charging">
+        <img src="https://i.imgur.com/FFgVldu.jpg" alt="Power Bank">
+        <h3>Power Bank Baseus 20000 мАг</h3>
+        <p class="price">749 грн</p>
+        <p>Велика ємність, швидка зарядка PD.</p>
+        <a class="order-btn" href="#order">Замовити</a>
+      </div>
+      <div class="product" data-category="charging">
+        <img src="https://i.imgur.com/NkSbRzF.jpg" alt="Зарядка">
+        <h3>Швидка зарядка 33W</h3>
+        <p class="price">299 грн</p>
+        <p>USB-C кабель у комплекті.</p>
+        <a class="order-btn" href="#order">Замовити</a>
+      </div>
+      <div class="product" data-category="sound">
+        <img src="https://i.imgur.com/TMyvqqx.jpg" alt="Навушники">
+        <h3>Навушники Xiaomi Buds 4</h3>
+        <p class="price">599 грн</p>
+        <p>Bluetooth 5.3, шумозаглушення.</p>
+        <a class="order-btn" href="#order">Замовити</a>
+      </div>
+      <div class="product" data-category="content">
+        <img src="https://i.imgur.com/y7eGn0W.jpg" alt="Тримач з лампою">
+        <h3>Тримач з кільцевою лампою</h3>
+        <p class="price">389 грн</p>
+        <p>Ідеально для відео, Zoom, стрімів.</p>
+        <a class="order-btn" href="#order">Замовити</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="order" class="section">
+    <h2>Форма замовлення</h2>
+    <form action="https://formsubmit.co/your-email@example.com" method="POST">
+      <input type="text" name="name" placeholder="Ваше ім'я" required>
+      <input type="tel" name="phone" placeholder="Телефон" required>
+      <textarea name="message" placeholder="Що бажаєте замовити?" required></textarea>
+      <button type="submit">Надіслати</button>
+    </form>
+  </section>
+
+  <footer>
+    &copy; 2025 СмартМаркет. Усі права захищені.
+  </footer>
+
+  <script>
+    function filterProducts(category) {
+      const products = document.querySelectorAll('.product');
+      products.forEach(p => {
+        p.style.display = (category === 'all' || p.dataset.category === category) ? 'block' : 'none';
+      });
+    }
+  </script>
+</body>
+</html>
